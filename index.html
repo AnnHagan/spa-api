@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API</title>
+</head>
+<body>
+  <h1>Random Dog Picture via API</h1>
+  <script>
+    const api = "https://dog.ceo/api/breeds/image/random"
+ 
+   // create async (ES2018 - Jan2018 code standards)
+   // arrow function (ES6 - Jun2015 code standards)
+    const fetchDogImage = async () => {
+      const response = await fetch(api)
+      const responseJSON = await response.json()
+      const dogImageUrl = responseJSON.message
+      
+      // create img tag using JS
+      const imageTag = document.createElement('img')
+      imageTag.src = dogImageUrl
+      document.body.appendChild(imageTag)
+    }
+    fetchDogImage()
+  </script>
+  
+</body>
+</html>
